@@ -8,7 +8,7 @@ As everyone knows, Koalas lead *very* busy lives. Being a bleeding heart koala s
 
 - [ ] tasks can be sorted within a status or moved between status'
 - [ ] Koala's can add new tasks
-- [ ] A seeded the kanban with some starter tasks for the eager koala.
+- [ ] A seeded kanban with some starter tasks for the eager koala.
 
 In addition, this project will include:
 - [ ] A production Readme
