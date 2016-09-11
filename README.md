@@ -15,7 +15,7 @@ In addition, this project will include:
 
 ### Wireframes
  
- Koala kanban will be a single page app with a few (2-3) boards to move tasks around between different status'.
+ Koala kanban will be a single page app with one boards to move tasks around between different status'.
 
 ![wireframes](https://github.com/Shramp/KoalaKanBan/blob/master/Screen%20Shot%202016-09-09%20at%208.43.34%20PM.png?raw=true)
 
@@ -25,7 +25,7 @@ This project will be implemented with the following technologies:
 
 - react for pretty much everything
 - react dnd for dragging and dropping stuff
-- probably redux for app state
+- redux for app state
 - Webpack to bundle and serve up the various scripts.
 
 In addition to the webpack entry file, there will be a few scripts. Probabaly:
@@ -43,7 +43,7 @@ In addition to the webpack entry file, there will be a few scripts. Probabaly:
 
 **Day 2**: get a really good handle on DnD, decide on applciation state structure
 
-**Day 3**: impliment the various class, get the kanban board more or less working
+**Day 3**: impliment the various classes, get the kanban board more or less working
 
 **Day 4**: finish functiuonality and do styling. add koala flare
 
