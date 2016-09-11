@@ -23149,17 +23149,35 @@
 	  _createClass(App, [{
 	    key: 'render',
 	    value: function render() {
+	      var style = {
+	        //height: '100vh',
+	        display: 'flex',
+	        alignItems: 'flex-start'
+	      };
 	
 	      return _react2.default.createElement(
 	        'div',
-	        null,
+	        { style: style },
 	        _react2.default.createElement(_status_column_container2.default, {
 	          status: 'todo',
 	          pushCard: this.props.pushCard,
-	          removeCard: this.props.removeCard }),
-	        _react2.default.createElement(_status_column_container2.default, { status: 'inProgress',
+	          removeCard: this.props.removeCard,
+	          heading: 'TODO' }),
+	        _react2.default.createElement(_status_column_container2.default, {
+	          status: 'inProgress',
 	          pushCard: this.props.pushCard,
-	          removeCard: this.props.removeCard })
+	          removeCard: this.props.removeCard,
+	          heading: 'In Progress' }),
+	        _react2.default.createElement(_status_column_container2.default, {
+	          status: 'review',
+	          pushCard: this.props.pushCard,
+	          removeCard: this.props.removeCard,
+	          heading: 'Review' }),
+	        _react2.default.createElement(_status_column_container2.default, {
+	          status: 'complete',
+	          pushCard: this.props.pushCard,
+	          removeCard: this.props.removeCard,
+	          heading: 'Complete' })
 	      );
 	    }
 	  }]);
@@ -30383,7 +30401,6 @@
 	    var sourceObj = monitor.getItem();
 	    var status = props.status;
 	    var index = sourceObj.index;
-	    console.log(sourceObj);
 	
 	    if (sourceObj.status !== status) {
 	      props.removeCard(index, sourceObj.status);
@@ -30436,6 +30453,10 @@
 	
 	var _card_container2 = _interopRequireDefault(_card_container);
 	
+	var _heading = __webpack_require__(349);
+	
+	var _heading2 = _interopRequireDefault(_heading);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30475,15 +30496,16 @@
 	      }
 	
 	      var style = {
-	        height: '25rem',
-	        width: '10rem',
+	        //height: '100%',
+	        //minHeight: '15rem',
+	        //width: '14rem',
 	        marginRight: '1.5rem',
 	        marginBorrom: '1.5rem',
 	        padding: '1rem',
 	        textAlign: 'center',
 	        fontSize: '1rem',
 	        lineHeight: 'normal',
-	        float: 'left',
+	        //float: 'left',
 	        backgroundColor: backgroundColor,
 	        border: 'dashed thin gray'
 	      };
@@ -30491,6 +30513,7 @@
 	      return connectDropTarget(_react2.default.createElement(
 	        'div',
 	        { style: style },
+	        _react2.default.createElement(_heading2.default, { heading: this.props.heading }),
 	        cards.map(function (card, i) {
 	          return _react2.default.createElement(_card_container2.default, { key: card.id,
 	            index: i,
@@ -30665,8 +30688,8 @@
 	      var opacity = isDragging ? 0.1 : 1;
 	
 	      var style = {
-	        height: '2rem',
-	        width: '8rem',
+	        minHeight: '2rem',
+	        width: '12rem',
 	        padding: '0.5rem 1rem',
 	        marginBottom: '0.5rem',
 	        backgroundColor: 'white',
@@ -30858,36 +30881,58 @@
 	  cards: {
 	    todo: [{
 	      id: 1,
-	      text: 'First'
+	      text: 'build OKkoala dating app'
 	    }, {
 	      id: 2,
-	      text: 'Second'
+	      text: 'visit panda at the zoo'
 	    }, {
 	      id: 3,
-	      text: 'Third'
+	      text: 'make drop-bear costume for halloween'
 	    }, {
 	      id: 4,
-	      text: 'Fourth'
+	      text: 'take a nap'
 	    }, {
 	      id: 5,
-	      text: 'Fifth'
+	      text: 'take an even longer nap'
 	    }, {
 	      id: 6,
-	      text: 'Sixth'
+	      text: 'read 101 ways to cook eucalyptus leaves'
 	    }, {
 	      id: 7,
-	      text: 'Seventh'
+	      text: 'take up surfing'
 	    }],
 	
 	    inProgress: [{
 	      id: 8,
-	      text: 'A'
+	      text: 'eat eucalyptus'
 	    }, {
 	      id: 9,
-	      text: 'B'
+	      text: 'eat more eucalyptus'
 	    }, {
 	      id: 10,
-	      text: 'C'
+	      text: 'take a really long nap'
+	    }],
+	
+	    review: [{
+	      id: 11,
+	      text: 'build nest'
+	    }, {
+	      id: 12,
+	      text: 'climb tree'
+	    }, {
+	      id: 13,
+	      text: 'forage'
+	    }],
+	
+	    complete: [{
+	      id: 14,
+	      text: 'be a koala'
+	    }, {
+	      id: 15,
+	      text: 'mark favorite tree'
+	    }, {
+	      id: 16,
+	      text: 'bellow softly'
 	    }]
 	  }
 	};
@@ -47647,6 +47692,64 @@
 		return module;
 	}
 
+
+/***/ },
+/* 349 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Heading = function (_Component) {
+	  _inherits(Heading, _Component);
+	
+	  function Heading(props) {
+	    _classCallCheck(this, Heading);
+	
+	    return _possibleConstructorReturn(this, (Heading.__proto__ || Object.getPrototypeOf(Heading)).call(this, props));
+	  }
+	
+	  _createClass(Heading, [{
+	    key: 'render',
+	    value: function render() {
+	      var style = {
+	        height: '5rem',
+	        border: 'solid thin black',
+	        padding: '0.5rem 1rem',
+	        marginBottom: '1rem',
+	        textAlign: 'center',
+	        lineHeight: '5rem'
+	      };
+	
+	      return _react2.default.createElement(
+	        'div',
+	        { style: style },
+	        this.props.heading
+	      );
+	    }
+	  }]);
+	
+	  return Heading;
+	}(_react.Component);
+	
+	exports.default = Heading;
 
 /***/ }
 /******/ ]);

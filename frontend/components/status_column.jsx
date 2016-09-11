@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import CardContainer from './card_container';
+import Heading from './heading';
 
 class StatusColumn extends Component {
   constructor(props) {
@@ -20,21 +21,23 @@ class StatusColumn extends Component {
     }
 
     const style = {
-      height: '25rem',
-      width: '10rem',
+      //height: '100%',
+      //minHeight: '15rem',
+      //width: '14rem',
       marginRight: '1.5rem',
       marginBorrom: '1.5rem',
       padding: '1rem',
       textAlign: 'center',
       fontSize: '1rem',
       lineHeight: 'normal',
-      float: 'left',
+      //float: 'left',
       backgroundColor: backgroundColor,
       border: 'dashed thin gray'
     };
 
     return connectDropTarget(
       <div style={style}>
+        <Heading heading={this.props.heading} />
         {cards.map((card, i) => {
           return (
             <CardContainer key={card.id}

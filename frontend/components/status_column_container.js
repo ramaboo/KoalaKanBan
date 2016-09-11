@@ -14,7 +14,6 @@ const cardTarget = {
     const sourceObj = monitor.getItem();
     const status = props.status;
     const index = sourceObj.index;
-    console.log(sourceObj)
 
     if (sourceObj.status !== status) {
       props.removeCard(index, sourceObj.status);

@@ -18,17 +18,36 @@ const mapDispatchToProps = dispatch => ({
 class App extends Component {
 
   render() {
+    const style = {
+      //height: '100vh',
+      display: 'flex',
+      alignItems: 'flex-start',
+      //overflow: 'scroll'
+    }
 
     return(
-      <div>
+      <div style={style}>
         <StatusColumnContainer
           status="todo"
           pushCard={this.props.pushCard}
-          removeCard={this.props.removeCard} />
-        <StatusColumnContainer status="inProgress"
+          removeCard={this.props.removeCard}
+          heading='TODO' />
+        <StatusColumnContainer
+          status="inProgress"
           pushCard={this.props.pushCard}
-          removeCard={this.props.removeCard} />
-      </div>
+          removeCard={this.props.removeCard}
+          heading='In Progress' />
+        <StatusColumnContainer
+          status="review"
+          pushCard={this.props.pushCard}
+          removeCard={this.props.removeCard}
+          heading='Review' />
+        <StatusColumnContainer
+          status="complete"
+          pushCard={this.props.pushCard}
+          removeCard={this.props.removeCard}
+          heading='Complete' />
+    </div>
     );
   }
 }
