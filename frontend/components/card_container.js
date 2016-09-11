@@ -8,7 +8,8 @@ const cardSource = {
   beginDrag(props) {
     return {
       id: props.id,
-      index: props.index
+      index: props.index,
+      status: props.status
     };
   },
 
@@ -23,6 +24,7 @@ const cardTarget = {
   hover(props, monitor, component) {
     const dragIndex = monitor.getItem().index;
     const hoverIndex = props.index;
+    const status = props.status;
 
     //prevent card replacing itself
     if (dragIndex === hoverIndex) {
@@ -54,9 +56,8 @@ const cardTarget = {
     if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
       return;
     }
-
     //here we catually do the move
-    props.moveCard(dragIndex, hoverIndex);
+    props.moveCard(dragIndex, hoverIndex, status);
 
     monitor.getItem().index = hoverIndex;
   }

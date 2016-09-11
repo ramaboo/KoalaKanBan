@@ -27,7 +27,7 @@ const mapStateToProps = (state) => ({
 })
 
 const mapDispatchToProps = dispatch => ({
-  moveCard: (dragIndex, hoverIndex) => dispatch(moveCard(dragIndex, hoverIndex))
+  moveCard: (dragIndex, hoverIndex, status) => dispatch(moveCard(dragIndex, hoverIndex, status))
 });
 
 export default compose(

@@ -30385,8 +30385,8 @@
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
 	  return {
-	    moveCard: function moveCard(dragIndex, hoverIndex) {
-	      return dispatch((0, _card_actions.moveCard)(dragIndex, hoverIndex));
+	    moveCard: function moveCard(dragIndex, hoverIndex, status) {
+	      return dispatch((0, _card_actions.moveCard)(dragIndex, hoverIndex, status));
 	    }
 	  };
 	};
@@ -30446,9 +30446,9 @@
 	
 	      var backgroundColor = 'white';
 	      if (isActive) {
-	        backgroundColor = 'white';
+	        backgroundColor = 'green';
 	      } else if (canDrop) {
-	        backgroundColor = 'white';
+	        backgroundColor = 'green';
 	      }
 	
 	      var style = {
@@ -30473,7 +30473,8 @@
 	            index: i,
 	            id: card.id,
 	            text: card.text,
-	            moveCard: _this2.props.moveCard });
+	            moveCard: _this2.props.moveCard,
+	            status: status });
 	        })
 	      ));
 	    }
@@ -30512,7 +30513,8 @@
 	  beginDrag: function beginDrag(props) {
 	    return {
 	      id: props.id,
-	      index: props.index
+	      index: props.index,
+	      status: props.status
 	    };
 	  },
 	  endDrag: function endDrag(props, monitor) {
@@ -30525,6 +30527,7 @@
 	  hover: function hover(props, monitor, component) {
 	    var dragIndex = monitor.getItem().index;
 	    var hoverIndex = props.index;
+	    var status = props.status;
 	
 	    //prevent card replacing itself
 	    if (dragIndex === hoverIndex) {
@@ -30556,9 +30559,8 @@
 	    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
 	      return;
 	    }
-	
 	    //here we catually do the move
-	    props.moveCard(dragIndex, hoverIndex);
+	    props.moveCard(dragIndex, hoverIndex, status);
 	
 	    monitor.getItem().index = hoverIndex;
 	  }
@@ -30597,11 +30599,12 @@
 	Object.defineProperty(exports, "__esModule", {
 	  value: true
 	});
-	var moveCard = exports.moveCard = function moveCard(dragIndex, hoverIndex) {
+	var moveCard = exports.moveCard = function moveCard(dragIndex, hoverIndex, status) {
 	  return {
 	    type: "MOVE_CARD",
 	    dragIndex: dragIndex,
-	    hoverIndex: hoverIndex
+	    hoverIndex: hoverIndex,
+	    status: status
 	  };
 	};
 
@@ -30672,14 +30675,15 @@
 	
 	  switch (action.type) {
 	    case "MOVE_CARD":
-	      var todoDup = state.todo.slice();
+	      var status = action.status;
+	      var statusDup = state[status].slice();
 	      var stateDup = (0, _lodash.merge)({}, state);
-	      var dragCard = todoDup[action.dragIndex];
+	      var dragCard = statusDup[action.dragIndex];
 	
-	      todoDup.splice(action.dragIndex, 1);
-	      todoDup.splice(action.hoverIndex, 0, dragCard);
+	      statusDup.splice(action.dragIndex, 1);
+	      statusDup.splice(action.hoverIndex, 0, dragCard);
 	
-	      stateDup.todo = todoDup;
+	      stateDup[status] = statusDup;
 	
 	      return stateDup;
 	

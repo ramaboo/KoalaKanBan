@@ -14,9 +14,9 @@ class StatusColumn extends Component {
 
     let backgroundColor = 'white';
     if (isActive) {
-      backgroundColor = 'white';
+      backgroundColor = 'green';
     } else if (canDrop) {
-      backgroundColor = 'white';
+      backgroundColor = 'green';
     }
 
     const style = {
@@ -41,7 +41,8 @@ class StatusColumn extends Component {
                   index={i}
                   id={card.id}
                   text={card.text}
-                  moveCard={this.props.moveCard} />
+                  moveCard={this.props.moveCard}
+                  status={status} />
           );
         })}
       </div>
