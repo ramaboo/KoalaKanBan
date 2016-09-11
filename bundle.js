@@ -30382,13 +30382,12 @@
 	    //return { status: props.status };
 	    var sourceObj = monitor.getItem();
 	    var status = props.status;
-	    var index = props.index;
+	    var index = sourceObj.index;
+	    console.log(sourceObj);
 	
 	    if (sourceObj.status !== status) {
-	      //console.log(sourceObj);
-	      //console.log(props)
-	      props.pushCard(sourceObj, status);
 	      props.removeCard(index, sourceObj.status);
+	      props.pushCard(sourceObj, status);
 	    }
 	  }
 	};

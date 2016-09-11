@@ -13,13 +13,12 @@ const cardTarget = {
     //return { status: props.status };
     const sourceObj = monitor.getItem();
     const status = props.status;
-    const index = props.index
+    const index = sourceObj.index;
+    console.log(sourceObj)
 
     if (sourceObj.status !== status) {
-      //console.log(sourceObj);
-      //console.log(props)
-      props.pushCard(sourceObj, status);
       props.removeCard(index, sourceObj.status);
+      props.pushCard(sourceObj, status);
     }
   }
 };
