@@ -9,7 +9,8 @@ class StatusColumn extends Component {
   render() {
     const { canDrop, isOver, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
-    const todo = this.props.state.cards.todo;
+    const status = this.props.status
+    const cards = this.props.state.cards[status];
 
     let backgroundColor = 'white';
     if (isActive) {
@@ -34,12 +35,12 @@ class StatusColumn extends Component {
 
     return connectDropTarget(
       <div style={style}>
-        {todo.map((todo, i) => {
+        {cards.map((card, i) => {
           return (
-            <CardContainer key={todo.id}
+            <CardContainer key={card.id}
                   index={i}
-                  id={todo.id}
-                  text={todo.text}
+                  id={card.id}
+                  text={card.text}
                   moveCard={this.props.moveCard} />
           );
         })}

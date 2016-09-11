@@ -20,6 +20,7 @@ class App extends Component {
     return(
       <div>
         <StatusColumnContainer status="todo" />
+        <StatusColumnContainer status="inProgress" />
       </div>
     );
   }

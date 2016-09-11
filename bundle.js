@@ -23144,7 +23144,8 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_status_column_container2.default, { status: 'todo' })
+	        _react2.default.createElement(_status_column_container2.default, { status: 'todo' }),
+	        _react2.default.createElement(_status_column_container2.default, { status: 'inProgress' })
 	      );
 	    }
 	  }]);
@@ -30440,7 +30441,8 @@
 	      var connectDropTarget = _props.connectDropTarget;
 	
 	      var isActive = canDrop && isOver;
-	      var todo = this.props.state.cards.todo;
+	      var status = this.props.status;
+	      var cards = this.props.state.cards[status];
 	
 	      var backgroundColor = 'white';
 	      if (isActive) {
@@ -30466,11 +30468,11 @@
 	      return connectDropTarget(_react2.default.createElement(
 	        'div',
 	        { style: style },
-	        todo.map(function (todo, i) {
-	          return _react2.default.createElement(_card_container2.default, { key: todo.id,
+	        cards.map(function (card, i) {
+	          return _react2.default.createElement(_card_container2.default, { key: card.id,
 	            index: i,
-	            id: todo.id,
-	            text: todo.text,
+	            id: card.id,
+	            text: card.text,
 	            moveCard: _this2.props.moveCard });
 	        })
 	      ));
