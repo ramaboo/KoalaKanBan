@@ -4,9 +4,8 @@ import React, { Component } from 'react';
 class Card extends Component {
 
   render() {
-    const { isDragging , connectDragSource, connectDropTarget } = this.props;
-    const { text } = this.props;
-    const opacity = isDragging ? 0.4 : 1;
+    const { text, isDragging, connectDragSource, connectDropTarget } = this.props;
+    const opacity = isDragging ? 0.1 : 1;
 
     const style = {
       height: '2rem',
@@ -18,7 +17,8 @@ class Card extends Component {
       border: '1px dashed gray',
       textAlign: 'center',
       lineHeight: '2rem',
-      color: 'black'
+      color: 'black',
+      opacity: opacity
     }
 
     return (

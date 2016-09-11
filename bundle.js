@@ -30527,12 +30527,12 @@
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
+	      var text = _props.text;
 	      var isDragging = _props.isDragging;
 	      var connectDragSource = _props.connectDragSource;
 	      var connectDropTarget = _props.connectDropTarget;
-	      var text = this.props.text;
 	
-	      var opacity = isDragging ? 0.4 : 1;
+	      var opacity = isDragging ? 0.1 : 1;
 	
 	      var style = {
 	        height: '2rem',
@@ -30544,7 +30544,8 @@
 	        border: '1px dashed gray',
 	        textAlign: 'center',
 	        lineHeight: '2rem',
-	        color: 'black'
+	        color: 'black',
+	        opacity: opacity
 	      };
 	
 	      return connectDragSource(connectDropTarget(_react2.default.createElement(
