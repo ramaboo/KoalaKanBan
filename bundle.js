@@ -23112,6 +23112,10 @@
 	
 	var _card2 = _interopRequireDefault(_card);
 	
+	var _status_column_container = __webpack_require__(342);
+	
+	var _status_column_container2 = _interopRequireDefault(_status_column_container);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23146,12 +23150,7 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(
-	          'p',
-	          null,
-	          'Hallo squirrels'
-	        ),
-	        _react2.default.createElement(_card_container2.default, { name: "First Card!" })
+	        _react2.default.createElement(_status_column_container2.default, null)
 	      );
 	    }
 	  }]);
@@ -30507,6 +30506,138 @@
 	}(_react.Component);
 	
 	exports.default = Card;
+
+/***/ },
+/* 342 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactDnd = __webpack_require__(200);
+	
+	var _reactRedux = __webpack_require__(173);
+	
+	var _redux = __webpack_require__(180);
+	
+	var _status_column = __webpack_require__(343);
+	
+	var _status_column2 = _interopRequireDefault(_status_column);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var cardTarget = {
+	  canDrop: function canDrop(props) {
+	    return true;
+	  },
+	  drop: function drop() {
+	    return { name: 'TODO' };
+	  }
+	};
+	
+	function collect(connect, monitor) {
+	  return {
+	    connectDropTarget: connect.dropTarget(),
+	    isOver: monitor.isOver(),
+	    canDrop: monitor.canDrop()
+	  };
+	}
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    state: state
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {};
+	};
+	
+	exports.default = (0, _redux.compose)((0, _reactDnd.DropTarget)("CARD", cardTarget, collect), (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps))(_status_column2.default);
+
+/***/ },
+/* 343 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	var _card_container = __webpack_require__(340);
+	
+	var _card_container2 = _interopRequireDefault(_card_container);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var StatusColumn = function (_Component) {
+	  _inherits(StatusColumn, _Component);
+	
+	  function StatusColumn() {
+	    _classCallCheck(this, StatusColumn);
+	
+	    return _possibleConstructorReturn(this, (StatusColumn.__proto__ || Object.getPrototypeOf(StatusColumn)).apply(this, arguments));
+	  }
+	
+	  _createClass(StatusColumn, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var canDrop = _props.canDrop;
+	      var isOver = _props.isOver;
+	      var connectDropTarget = _props.connectDropTarget;
+	
+	      var isActive = canDrop && isOver;
+	
+	      var backgroundColor = 'white';
+	      if (isActive) {
+	        backgroundColor = 'white';
+	      } else if (canDrop) {
+	        backgroundColor = 'white';
+	      }
+	
+	      var style = {
+	        height: '20rem',
+	        width: '10rem',
+	        marginRight: '1.5rem',
+	        marginBorrom: '1.5rem',
+	        padding: '1rem',
+	        textAlign: 'center',
+	        fontSize: '1rem',
+	        lineHeight: 'normal',
+	        float: 'left',
+	        backgroundColor: backgroundColor,
+	        border: 'dashed thin gray'
+	      };
+	
+	      return connectDropTarget(_react2.default.createElement(
+	        'div',
+	        { style: style },
+	        _react2.default.createElement(_card_container2.default, { name: "First Card!" })
+	      ));
+	    }
+	  }]);
+	
+	  return StatusColumn;
+	}(_react.Component);
+	
+	exports.default = StatusColumn;
 
 /***/ }
 /******/ ]);

@@ -3,8 +3,9 @@ import { DragDropContext } from 'react-dnd';
 import HTML5Backend, { NativeTypes } from 'react-dnd-html5-backend';
 import  { compose } from 'redux';
 import { connect } from 'react-redux';
-import CardContainer from './card_container'
-import Card from './card'
+import CardContainer from './card_container';
+import Card from './card';
+import StatusColumnContainer from './status_column_container';
 
 const mapStateToProps = (state) => ({
   state
@@ -20,8 +21,8 @@ class App extends Component {
 
     return(
       <div>
-        <p>Hallo squirrels</p>
-        <CardContainer name={"First Card!"} />
+        
+        <StatusColumnContainer />
       </div>
     );
   }
