@@ -9,7 +9,8 @@ const cardSource = {
     return {
       id: props.id,
       index: props.index,
-      status: props.status
+      status: props.status,
+      text: props.text
     };
   },
 
@@ -22,9 +23,15 @@ const cardSource = {
 
 const cardTarget = {
   hover(props, monitor, component) {
+    const sourceObj = monitor.getItem();
     const dragIndex = monitor.getItem().index;
     const hoverIndex = props.index;
     const status = props.status;
+
+    //console.log(sourceObj.status, status);
+    if (sourceObj.status !== status) {
+      return;
+    }
 
     //prevent card replacing itself
     if (dragIndex === hoverIndex) {

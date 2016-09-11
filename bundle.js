@@ -23110,6 +23110,8 @@
 	
 	var _status_column_container2 = _interopRequireDefault(_status_column_container);
 	
+	var _card_actions = __webpack_require__(342);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23125,7 +23127,14 @@
 	};
 	
 	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
-	  return {};
+	  return {
+	    pushCard: function pushCard(card, targetStatus) {
+	      return dispatch((0, _card_actions.pushCard)(card, targetStatus));
+	    },
+	    removeCard: function removeCard(index, sourceStatus) {
+	      return dispatch((0, _card_actions.removeCard)(index, sourceStatus));
+	    }
+	  };
 	};
 	
 	var App = function (_Component) {
@@ -23144,8 +23153,13 @@
 	      return _react2.default.createElement(
 	        'div',
 	        null,
-	        _react2.default.createElement(_status_column_container2.default, { status: 'todo' }),
-	        _react2.default.createElement(_status_column_container2.default, { status: 'inProgress' })
+	        _react2.default.createElement(_status_column_container2.default, {
+	          status: 'todo',
+	          pushCard: this.props.pushCard,
+	          removeCard: this.props.removeCard }),
+	        _react2.default.createElement(_status_column_container2.default, { status: 'inProgress',
+	          pushCard: this.props.pushCard,
+	          removeCard: this.props.removeCard })
 	      );
 	    }
 	  }]);
@@ -30364,8 +30378,18 @@
 	  canDrop: function canDrop(props) {
 	    return true;
 	  },
-	  drop: function drop(props) {
-	    return { status: props.status };
+	  drop: function drop(props, monitor, component) {
+	    //return { status: props.status };
+	    var sourceObj = monitor.getItem();
+	    var status = props.status;
+	    var index = props.index;
+	
+	    if (sourceObj.status !== status) {
+	      //console.log(sourceObj);
+	      //console.log(props)
+	      props.pushCard(sourceObj, status);
+	      props.removeCard(index, sourceObj.status);
+	    }
 	  }
 	};
 	
@@ -30514,7 +30538,8 @@
 	    return {
 	      id: props.id,
 	      index: props.index,
-	      status: props.status
+	      status: props.status,
+	      text: props.text
 	    };
 	  },
 	  endDrag: function endDrag(props, monitor) {
@@ -30525,9 +30550,15 @@
 	
 	var cardTarget = {
 	  hover: function hover(props, monitor, component) {
+	    var sourceObj = monitor.getItem();
 	    var dragIndex = monitor.getItem().index;
 	    var hoverIndex = props.index;
 	    var status = props.status;
+	
+	    //console.log(sourceObj.status, status);
+	    if (sourceObj.status !== status) {
+	      return;
+	    }
 	
 	    //prevent card replacing itself
 	    if (dragIndex === hoverIndex) {

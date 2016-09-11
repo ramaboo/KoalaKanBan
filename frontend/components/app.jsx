@@ -4,13 +4,15 @@ import HTML5Backend, { NativeTypes } from 'react-dnd-html5-backend';
 import  { compose } from 'redux';
 import { connect } from 'react-redux';
 import StatusColumnContainer from './status_column_container';
+import { pushCard, removeCard } from '../actions/card_actions';
 
 const mapStateToProps = (state) => ({
   state
 })
 
 const mapDispatchToProps = dispatch => ({
-
+  pushCard: (card, targetStatus) => dispatch(pushCard(card, targetStatus)),
+  removeCard: (index, sourceStatus) => dispatch(removeCard(index, sourceStatus))
 });
 
 class App extends Component {
@@ -19,8 +21,13 @@ class App extends Component {
 
     return(
       <div>
-        <StatusColumnContainer status="todo" />
-        <StatusColumnContainer status="inProgress" />
+        <StatusColumnContainer
+          status="todo"
+          pushCard={this.props.pushCard}
+          removeCard={this.props.removeCard} />
+        <StatusColumnContainer status="inProgress"
+          pushCard={this.props.pushCard}
+          removeCard={this.props.removeCard} />
       </div>
     );
   }

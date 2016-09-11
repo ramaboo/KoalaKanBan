@@ -9,8 +9,18 @@ const cardTarget = {
     return true;
   },
 
-  drop(props) {
-    return { status: props.status };
+  drop(props, monitor, component) {
+    //return { status: props.status };
+    const sourceObj = monitor.getItem();
+    const status = props.status;
+    const index = props.index
+
+    if (sourceObj.status !== status) {
+      //console.log(sourceObj);
+      //console.log(props)
+      props.pushCard(sourceObj, status);
+      props.removeCard(index, sourceObj.status);
+    }
   }
 };
 
