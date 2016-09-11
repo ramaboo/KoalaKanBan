@@ -5,52 +5,28 @@ import update from 'react/lib/update';
 class StatusColumn extends Component {
   constructor(props) {
     super(props)
-    this.moveCard = this.moveCard.bind(this);
-    this.state = {
-      cards: [{
-        id: 1,
-        text: 'First'
-      }, {
-        id: 2,
-        text: 'Second'
-      }, {
-        id: 3,
-        text: 'Third'
-      }, {
-        id: 4,
-        text: 'Fourth'
-      }, {
-        id: 5,
-        text: 'Fifth'
-      }, {
-        id: 6,
-        text: 'Sixth'
-      }, {
-        id: 7,
-        text: 'Seventh'
-      }]
-    };
+    //this.moveCard = this.moveCard.bind(this);
   }
 
 
-  moveCard(dragIndex, hoverIndex) {
-    const { cards } = this.state;
-    const dragCard = cards[dragIndex];
-
-    this.setState(update(this.state, {
-      cards: {
-        $splice: [
-          [dragIndex, 1],
-          [hoverIndex, 0, dragCard]
-        ]
-      }
-    }));
-  }
+  // moveCard(dragIndex, hoverIndex) {
+  //   const { cards } = this.state;
+  //   const dragCard = cards[dragIndex];
+  //
+  //   this.setState(update(this.state, {
+  //     cards: {
+  //       $splice: [
+  //         [dragIndex, 1],
+  //         [hoverIndex, 0, dragCard]
+  //       ]
+  //     }
+  //   }));
+  // }
 
   render() {
     const  {canDrop, isOver, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
-    const { cards } = this.state;
+    const { cards } = this.props.state;
 
     let backgroundColor = 'white';
     if (isActive) {
@@ -81,7 +57,7 @@ class StatusColumn extends Component {
                   index={i}
                   id={card.id}
                   text={card.text}
-                  moveCard={this.moveCard} />
+                  moveCard={this.props.moveCard} />
           );
         })}
       </div>

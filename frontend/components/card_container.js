@@ -2,7 +2,7 @@ import { DragSource, DropTarget } from 'react-dnd';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import Card from './card';
-import { findDOMNode } from 'react-dom'
+import { findDOMNode } from 'react-dom';
 
 const cardSource = {
   beginDrag(props) {
