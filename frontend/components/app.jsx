@@ -21,7 +21,6 @@ class App extends Component {
 
     return(
       <div>
-        
         <StatusColumnContainer />
       </div>
     );

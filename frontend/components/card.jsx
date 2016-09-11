@@ -4,8 +4,8 @@ import React, { Component } from 'react';
 class Card extends Component {
 
   render() {
-    const { isDragging , connectDragSource } = this.props;
-    const { name } = this.props;
+    const { isDragging , connectDragSource, connectDropTarget } = this.props;
+    const { text } = this.props;
     const opacity = isDragging ? 0.4 : 1;
 
     const style = {
@@ -17,15 +17,16 @@ class Card extends Component {
       cursor: 'move',
       border: '1px dashed gray',
       textAlign: 'center',
-      lineHeight: '2rem'
+      lineHeight: '2rem',
+      color: 'black'
     }
 
     return (
-      connectDragSource(
+      connectDragSource(connectDropTarget(
         <div style={style}>
-          {name}
+          {text}
         </div>
-      )
+      ))
     );
   }
 }
