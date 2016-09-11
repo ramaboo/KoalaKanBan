@@ -1,32 +1,15 @@
 import React, { Component } from 'react';
 import CardContainer from './card_container';
-import update from 'react/lib/update';
 
 class StatusColumn extends Component {
   constructor(props) {
     super(props)
-    //this.moveCard = this.moveCard.bind(this);
   }
 
-
-  // moveCard(dragIndex, hoverIndex) {
-  //   const { cards } = this.state;
-  //   const dragCard = cards[dragIndex];
-  //
-  //   this.setState(update(this.state, {
-  //     cards: {
-  //       $splice: [
-  //         [dragIndex, 1],
-  //         [hoverIndex, 0, dragCard]
-  //       ]
-  //     }
-  //   }));
-  // }
-
   render() {
-    const  {canDrop, isOver, connectDropTarget } = this.props;
+    const { canDrop, isOver, connectDropTarget } = this.props;
     const isActive = canDrop && isOver;
-    const { cards } = this.props.state;
+    const todo = this.props.state.cards.todo;
 
     let backgroundColor = 'white';
     if (isActive) {
@@ -51,12 +34,12 @@ class StatusColumn extends Component {
 
     return connectDropTarget(
       <div style={style}>
-        {cards.map((card, i) => {
+        {todo.map((todo, i) => {
           return (
-            <CardContainer key={card.id}
+            <CardContainer key={todo.id}
                   index={i}
-                  id={card.id}
-                  text={card.text}
+                  id={todo.id}
+                  text={todo.text}
                   moveCard={this.props.moveCard} />
           );
         })}

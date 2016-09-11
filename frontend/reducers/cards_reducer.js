@@ -1,13 +1,16 @@
 import { merge } from 'lodash'
 
-const CardsReducer = (state = [], action) => {
+const CardsReducer = (state = {}, action) => {
   switch(action.type) {
     case "MOVE_CARD":
-      let stateDup = state.slice();
-      const dragCard = stateDup[action.dragIndex];
+      let todoDup = state.todo.slice();
+      let stateDup = merge({}, state);
+      const dragCard = todoDup[action.dragIndex];
 
-      stateDup.splice(action.dragIndex, 1);
-      stateDup.splice(action.hoverIndex, 0, dragCard);
+      todoDup.splice(action.dragIndex, 1);
+      todoDup.splice(action.hoverIndex, 0, dragCard);
+
+      stateDup.todo = todoDup;
 
       return stateDup;
 

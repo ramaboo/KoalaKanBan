@@ -15,12 +15,9 @@ const cardSource = {
   endDrag(props, monitor) {
     const item = monitor.getItem();
     const dropResult = monitor.getDropResult();
-
-    if (dropResult) {
-      console.log(`${item.name} dropped!`);
     }
-  }
-};
+  };
+
 
 const cardTarget = {
   hover(props, monitor, component) {

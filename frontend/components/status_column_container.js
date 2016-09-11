@@ -9,8 +9,8 @@ const cardTarget = {
     return true;
   },
 
-  drop() {
-    return { name: 'TODO' };
+  drop(props) {
+    return { status: props.status };
   }
 };
 
