@@ -6,17 +6,17 @@ class Heading extends Component {
   }
 
   render() {
-    const style = {
-      height: '5rem',
-      border: 'solid thin black',
-      padding: '0.5rem 1rem',
-      marginBottom: '1rem',
-      textAlign: 'center',
-      lineHeight: '5rem'
-    }
+    // const style = {
+    //   height: '5rem',
+    //   border: 'solid thin black',
+    //   padding: '0.5rem 1rem',
+    //   marginBottom: '1rem',
+    //   textAlign: 'center',
+    //   lineHeight: '5rem'
+    // }
 
     return(
-      <div style={style}>
+      <div className='heading'>
         {this.props.heading}
       </div>
     );

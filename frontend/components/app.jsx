@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     const style = {
-      //height: '100vh',
+      height: '100vh',
       display: 'flex',
       alignItems: 'flex-start',
       //overflow: 'scroll'
@@ -31,7 +31,7 @@ class App extends Component {
           status="todo"
           pushCard={this.props.pushCard}
           removeCard={this.props.removeCard}
-          heading='TODO' />
+          heading='To Do' />
         <StatusColumnContainer
           status="inProgress"
           pushCard={this.props.pushCard}

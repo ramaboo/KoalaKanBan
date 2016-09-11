@@ -13,30 +13,29 @@ class StatusColumn extends Component {
     const status = this.props.status
     const cards = this.props.state.cards[status];
 
-    let backgroundColor = 'white';
+    let backgroundColor = '#C0BDB3';
     if (isActive) {
-      backgroundColor = 'green';
-    } else if (canDrop) {
-      backgroundColor = 'green';
+      backgroundColor = '#84AA43';
     }
 
     const style = {
       //height: '100%',
       //minHeight: '15rem',
       //width: '14rem',
-      marginRight: '1.5rem',
-      marginBorrom: '1.5rem',
-      padding: '1rem',
-      textAlign: 'center',
-      fontSize: '1rem',
-      lineHeight: 'normal',
+      // marginRight: '1.5rem',
+      // marginBorrom: '1.5rem',
+      // padding: '1rem',
+      // textAlign: 'center',
+      // fontSize: '1rem',
+      // lineHeight: 'normal',
       //float: 'left',
+      // border: 'dashed thin gray',
+      // opacity: 0.5,
       backgroundColor: backgroundColor,
-      border: 'dashed thin gray'
     };
 
     return connectDropTarget(
-      <div style={style}>
+      <div className='status-column' style={style}>
         <Heading heading={this.props.heading} />
         {cards.map((card, i) => {
           return (

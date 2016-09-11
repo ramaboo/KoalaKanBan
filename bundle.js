@@ -23150,7 +23150,7 @@
 	    key: 'render',
 	    value: function render() {
 	      var style = {
-	        //height: '100vh',
+	        height: '100vh',
 	        display: 'flex',
 	        alignItems: 'flex-start'
 	      };
@@ -23162,7 +23162,7 @@
 	          status: 'todo',
 	          pushCard: this.props.pushCard,
 	          removeCard: this.props.removeCard,
-	          heading: 'TODO' }),
+	          heading: 'To Do' }),
 	        _react2.default.createElement(_status_column_container2.default, {
 	          status: 'inProgress',
 	          pushCard: this.props.pushCard,
@@ -30488,31 +30488,30 @@
 	      var status = this.props.status;
 	      var cards = this.props.state.cards[status];
 	
-	      var backgroundColor = 'white';
+	      var backgroundColor = '#C0BDB3';
 	      if (isActive) {
-	        backgroundColor = 'green';
-	      } else if (canDrop) {
-	        backgroundColor = 'green';
+	        backgroundColor = '#84AA43';
 	      }
 	
 	      var style = {
 	        //height: '100%',
 	        //minHeight: '15rem',
 	        //width: '14rem',
-	        marginRight: '1.5rem',
-	        marginBorrom: '1.5rem',
-	        padding: '1rem',
-	        textAlign: 'center',
-	        fontSize: '1rem',
-	        lineHeight: 'normal',
+	        // marginRight: '1.5rem',
+	        // marginBorrom: '1.5rem',
+	        // padding: '1rem',
+	        // textAlign: 'center',
+	        // fontSize: '1rem',
+	        // lineHeight: 'normal',
 	        //float: 'left',
-	        backgroundColor: backgroundColor,
-	        border: 'dashed thin gray'
+	        // border: 'dashed thin gray',
+	        // opacity: 0.5,
+	        backgroundColor: backgroundColor
 	      };
 	
 	      return connectDropTarget(_react2.default.createElement(
 	        'div',
-	        { style: style },
+	        { className: 'status-column', style: style },
 	        _react2.default.createElement(_heading2.default, { heading: this.props.heading }),
 	        cards.map(function (card, i) {
 	          return _react2.default.createElement(_card_container2.default, { key: card.id,
@@ -30688,22 +30687,22 @@
 	      var opacity = isDragging ? 0.1 : 1;
 	
 	      var style = {
-	        minHeight: '2rem',
-	        width: '12rem',
-	        padding: '0.5rem 1rem',
-	        marginBottom: '0.5rem',
-	        backgroundColor: 'white',
-	        cursor: 'move',
-	        border: '1px dashed gray',
-	        textAlign: 'center',
-	        lineHeight: '2rem',
-	        color: 'black',
+	        // minHeight: '2rem',
+	        // width: '12rem',
+	        // padding: '0.5rem 1rem',
+	        // marginBottom: '0.5rem',
+	        // backgroundColor: 'white',
+	        // cursor: 'move',
+	        // border: '1px dashed gray',
+	        // textAlign: 'center',
+	        // lineHeight: '2rem',
+	        // color: 'black',
 	        opacity: opacity
 	      };
 	
 	      return connectDragSource(connectDropTarget(_react2.default.createElement(
 	        'div',
-	        { style: style },
+	        { className: 'card', style: style },
 	        text
 	      )));
 	    }
@@ -47729,18 +47728,18 @@
 	  _createClass(Heading, [{
 	    key: 'render',
 	    value: function render() {
-	      var style = {
-	        height: '5rem',
-	        border: 'solid thin black',
-	        padding: '0.5rem 1rem',
-	        marginBottom: '1rem',
-	        textAlign: 'center',
-	        lineHeight: '5rem'
-	      };
+	      // const style = {
+	      //   height: '5rem',
+	      //   border: 'solid thin black',
+	      //   padding: '0.5rem 1rem',
+	      //   marginBottom: '1rem',
+	      //   textAlign: 'center',
+	      //   lineHeight: '5rem'
+	      // }
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { style: style },
+	        { className: 'heading' },
 	        this.props.heading
 	      );
 	    }
