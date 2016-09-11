@@ -6,8 +6,7 @@ As everyone knows, Koalas lead *very* busy lives. Being a bleeding heart koala s
 
 ### Functionality & MVP  
 
-- [ ] Koalas can be easily confused, so I help them stay organized by using several categories of tasks Tasks can only be moved around within their respective category.
-- [ ] a task can be moved into and out of any status within its category 
+- [ ] tasks can be sorted within a status or moved between status'
 - [ ] Koala's can add new tasks
 - [ ] A seeded the kanban with some starter tasks for the eager koala.
 
@@ -32,9 +31,9 @@ This project will be implemented with the following technologies:
 In addition to the webpack entry file, there will be a few scripts. Probabaly:
 
 - container to hold all the things
-- board to hold a category (row)
-- status (column)
+- status columns
 - task (card)
+- -some visual stuff (instructions, welcome, koalas etx)
 
 
 
