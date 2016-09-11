@@ -1,7 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
+import { DragDropContext } from 'react-dnd';
+import HTML5Backend, { NativeTypes } from 'react-dnd-html5-backend';
+import  { compose } from 'redux';
+import { connect } from 'react-redux';
 
-const App = () => (
-  <div>Hello World</div>
-);
+const mapStateToProps = (state) => ({
+  state
+})
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+
+});
+
+class App extends Component {
+
+  render() {
+
+    return(
+      <div>Hallo squirrels</div>
+    );
+  }
+}
+
+export default compose(
+  DragDropContext(HTML5Backend),
+  connect(mapStateToProps,
+  mapDispatchToProps)
+)(App);
