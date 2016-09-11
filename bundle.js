@@ -58,11 +58,11 @@
 	
 	var _root2 = _interopRequireDefault(_root);
 	
-	var _store = __webpack_require__(342);
+	var _store = __webpack_require__(343);
 	
 	var _store2 = _interopRequireDefault(_store);
 	
-	var _preloaded_state = __webpack_require__(347);
+	var _preloaded_state = __webpack_require__(346);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -30356,7 +30356,7 @@
 	
 	var _status_column2 = _interopRequireDefault(_status_column);
 	
-	var _card_actions = __webpack_require__(341);
+	var _card_actions = __webpack_require__(342);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -30501,7 +30501,7 @@
 	
 	var _redux = __webpack_require__(180);
 	
-	var _card = __webpack_require__(348);
+	var _card = __webpack_require__(341);
 	
 	var _card2 = _interopRequireDefault(_card);
 	
@@ -30559,7 +30559,7 @@
 	    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
 	      return;
 	    }
-	    //here we catually do the move
+	    //here we do the move
 	    props.moveCard(dragIndex, hoverIndex, status);
 	
 	    monitor.getItem().index = hoverIndex;
@@ -30592,6 +30592,77 @@
 
 /***/ },
 /* 341 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Card = function (_Component) {
+	  _inherits(Card, _Component);
+	
+	  function Card() {
+	    _classCallCheck(this, Card);
+	
+	    return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).apply(this, arguments));
+	  }
+	
+	  _createClass(Card, [{
+	    key: 'render',
+	    value: function render() {
+	      var _props = this.props;
+	      var text = _props.text;
+	      var isDragging = _props.isDragging;
+	      var connectDragSource = _props.connectDragSource;
+	      var connectDropTarget = _props.connectDropTarget;
+	
+	      var opacity = isDragging ? 0.1 : 1;
+	
+	      var style = {
+	        height: '2rem',
+	        width: '8rem',
+	        padding: '0.5rem 1rem',
+	        marginBottom: '0.5rem',
+	        backgroundColor: 'white',
+	        cursor: 'move',
+	        border: '1px dashed gray',
+	        textAlign: 'center',
+	        lineHeight: '2rem',
+	        color: 'black',
+	        opacity: opacity
+	      };
+	
+	      return connectDragSource(connectDropTarget(_react2.default.createElement(
+	        'div',
+	        { style: style },
+	        text
+	      )));
+	    }
+	  }]);
+	
+	  return Card;
+	}(_react.Component);
+	
+	exports.default = Card;
+
+/***/ },
+/* 342 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -30607,31 +30678,20 @@
 	    status: status
 	  };
 	};
-
-/***/ },
-/* 342 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _redux = __webpack_require__(180);
-	
-	var _root_reducer = __webpack_require__(343);
-	
-	var _root_reducer2 = _interopRequireDefault(_root_reducer);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	var configureStore = function configureStore() {
-	  var preloadedState = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
-	  return (0, _redux.createStore)(_root_reducer2.default, preloadedState);
+	var pushCard = exports.pushCard = function pushCard(card, targetStatus) {
+	  return {
+	    type: "PUSH_CARD",
+	    card: card,
+	    targetStatus: targetStatus
+	  };
 	};
-	
-	exports.default = configureStore;
+	var removeCard = exports.removeCard = function removeCard(index, sourceStatus) {
+	  return {
+	    type: "REMOVE_CARD",
+	    index: index,
+	    sourceStatus: sourceStatus
+	  };
+	};
 
 /***/ },
 /* 343 */
@@ -30645,7 +30705,32 @@
 	
 	var _redux = __webpack_require__(180);
 	
-	var _cards_reducer = __webpack_require__(344);
+	var _root_reducer = __webpack_require__(344);
+	
+	var _root_reducer2 = _interopRequireDefault(_root_reducer);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var configureStore = function configureStore() {
+	  var preloadedState = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
+	  return (0, _redux.createStore)(_root_reducer2.default, preloadedState);
+	};
+	
+	exports.default = configureStore;
+
+/***/ },
+/* 344 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _redux = __webpack_require__(180);
+	
+	var _cards_reducer = __webpack_require__(345);
 	
 	var _cards_reducer2 = _interopRequireDefault(_cards_reducer);
 	
@@ -30658,7 +30743,7 @@
 	exports.default = RootReducer;
 
 /***/ },
-/* 344 */
+/* 345 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
@@ -30667,7 +30752,7 @@
 	  value: true
 	});
 	
-	var _lodash = __webpack_require__(345);
+	var _lodash = __webpack_require__(347);
 	
 	var CardsReducer = function CardsReducer() {
 	  var state = arguments.length <= 0 || arguments[0] === undefined ? {} : arguments[0];
@@ -30675,17 +30760,39 @@
 	
 	  switch (action.type) {
 	    case "MOVE_CARD":
-	      var status = action.status;
-	      var statusDup = state[status].slice();
-	      var stateDup = (0, _lodash.merge)({}, state);
-	      var dragCard = statusDup[action.dragIndex];
+	      var moveStatus = action.status;
+	      var moveStatusDup = state[moveStatus].slice();
+	      var moveStateDup = (0, _lodash.merge)({}, state);
+	      var dragCard = moveStatusDup[action.dragIndex];
 	
-	      statusDup.splice(action.dragIndex, 1);
-	      statusDup.splice(action.hoverIndex, 0, dragCard);
+	      moveStatusDup.splice(action.dragIndex, 1);
+	      moveStatusDup.splice(action.hoverIndex, 0, dragCard);
 	
-	      stateDup[status] = statusDup;
+	      moveStateDup[moveStatus] = moveStatusDup;
 	
-	      return stateDup;
+	      return moveStateDup;
+	
+	    case "REMOVE_CARD":
+	      var removeStatus = action.sourceStatus;
+	      var removeStatusDup = state[removeStatus].slice();
+	      var removeStateDup = (0, _lodash.merge)({}, state);
+	
+	      removeStatusDup.splice(action.index, 1);
+	
+	      removeStateDup[removeStatus] = removeStatusDup;
+	
+	      return removeStateDup;
+	
+	    case "PUSH_CARD":
+	      var pushStatus = action.targetStatus;
+	      var pushStatusDup = state[pushStatus].slice();
+	      var pushStateDup = (0, _lodash.merge)({}, state);
+	
+	      pushStatusDup.push(action.card);
+	
+	      pushStateDup[pushStatus] = pushStatusDup;
+	
+	      return pushStateDup;
 	
 	    default:
 	      return state;
@@ -30709,7 +30816,54 @@
 	// }
 
 /***/ },
-/* 345 */
+/* 346 */
+/***/ function(module, exports) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	var preloadedState = exports.preloadedState = {
+	  cards: {
+	    todo: [{
+	      id: 1,
+	      text: 'First'
+	    }, {
+	      id: 2,
+	      text: 'Second'
+	    }, {
+	      id: 3,
+	      text: 'Third'
+	    }, {
+	      id: 4,
+	      text: 'Fourth'
+	    }, {
+	      id: 5,
+	      text: 'Fifth'
+	    }, {
+	      id: 6,
+	      text: 'Sixth'
+	    }, {
+	      id: 7,
+	      text: 'Seventh'
+	    }],
+	
+	    inProgress: [{
+	      id: 8,
+	      text: 'A'
+	    }, {
+	      id: 9,
+	      text: 'B'
+	    }, {
+	      id: 10,
+	      text: 'C'
+	    }]
+	  }
+	};
+
+/***/ },
+/* 347 */
 /***/ function(module, exports, __webpack_require__) {
 
 	var __WEBPACK_AMD_DEFINE_RESULT__;/* WEBPACK VAR INJECTION */(function(global, module) {/**
@@ -47446,10 +47600,10 @@
 	  }
 	}.call(this));
 	
-	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(346)(module)))
+	/* WEBPACK VAR INJECTION */}.call(exports, (function() { return this; }()), __webpack_require__(348)(module)))
 
 /***/ },
-/* 346 */
+/* 348 */
 /***/ function(module, exports) {
 
 	module.exports = function(module) {
@@ -47463,124 +47617,6 @@
 		return module;
 	}
 
-
-/***/ },
-/* 347 */
-/***/ function(module, exports) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	var preloadedState = exports.preloadedState = {
-	  cards: {
-	    todo: [{
-	      id: 1,
-	      text: 'First'
-	    }, {
-	      id: 2,
-	      text: 'Second'
-	    }, {
-	      id: 3,
-	      text: 'Third'
-	    }, {
-	      id: 4,
-	      text: 'Fourth'
-	    }, {
-	      id: 5,
-	      text: 'Fifth'
-	    }, {
-	      id: 6,
-	      text: 'Sixth'
-	    }, {
-	      id: 7,
-	      text: 'Seventh'
-	    }],
-	
-	    inProgress: [{
-	      id: 8,
-	      text: 'A'
-	    }, {
-	      id: 9,
-	      text: 'B'
-	    }, {
-	      id: 10,
-	      text: 'C'
-	    }]
-	  }
-	};
-
-/***/ },
-/* 348 */
-/***/ function(module, exports, __webpack_require__) {
-
-	'use strict';
-	
-	Object.defineProperty(exports, "__esModule", {
-	  value: true
-	});
-	
-	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-	
-	var _react = __webpack_require__(1);
-	
-	var _react2 = _interopRequireDefault(_react);
-	
-	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-	
-	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-	
-	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-	
-	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-	
-	var Card = function (_Component) {
-	  _inherits(Card, _Component);
-	
-	  function Card() {
-	    _classCallCheck(this, Card);
-	
-	    return _possibleConstructorReturn(this, (Card.__proto__ || Object.getPrototypeOf(Card)).apply(this, arguments));
-	  }
-	
-	  _createClass(Card, [{
-	    key: 'render',
-	    value: function render() {
-	      var _props = this.props;
-	      var text = _props.text;
-	      var isDragging = _props.isDragging;
-	      var connectDragSource = _props.connectDragSource;
-	      var connectDropTarget = _props.connectDropTarget;
-	
-	      var opacity = isDragging ? 0.1 : 1;
-	
-	      var style = {
-	        height: '2rem',
-	        width: '8rem',
-	        padding: '0.5rem 1rem',
-	        marginBottom: '0.5rem',
-	        backgroundColor: 'white',
-	        cursor: 'move',
-	        border: '1px dashed gray',
-	        textAlign: 'center',
-	        lineHeight: '2rem',
-	        color: 'black',
-	        opacity: opacity
-	      };
-	
-	      return connectDragSource(connectDropTarget(_react2.default.createElement(
-	        'div',
-	        { style: style },
-	        text
-	      )));
-	    }
-	  }]);
-	
-	  return Card;
-	}(_react.Component);
-	
-	exports.default = Card;
 
 /***/ }
 /******/ ]);

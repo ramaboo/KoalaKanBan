@@ -3,17 +3,39 @@ import { merge } from 'lodash'
 const CardsReducer = (state = {}, action) => {
   switch(action.type) {
     case "MOVE_CARD":
-      let status = action.status
-      let statusDup = state[status].slice();
-      let stateDup = merge({}, state);
-      const dragCard = statusDup[action.dragIndex];
+      let moveStatus = action.status
+      let moveStatusDup = state[moveStatus].slice();
+      let moveStateDup = merge({}, state);
+      const dragCard = moveStatusDup[action.dragIndex];
 
-      statusDup.splice(action.dragIndex, 1);
-      statusDup.splice(action.hoverIndex, 0, dragCard);
+      moveStatusDup.splice(action.dragIndex, 1);
+      moveStatusDup.splice(action.hoverIndex, 0, dragCard);
 
-      stateDup[status] = statusDup;
+      moveStateDup[moveStatus] = moveStatusDup;
 
-      return stateDup;
+      return moveStateDup;
+
+    case "REMOVE_CARD":
+      let removeStatus = action.sourceStatus
+      let removeStatusDup = state[removeStatus].slice();
+      let removeStateDup = merge({}, state);
+
+      removeStatusDup.splice(action.index, 1);
+
+      removeStateDup[removeStatus] = removeStatusDup;
+
+      return removeStateDup;
+
+    case "PUSH_CARD":
+      let pushStatus = action.targetStatus;
+      let pushStatusDup = state[pushStatus].slice();
+      let pushStateDup = merge({}, state);
+
+      pushStatusDup.push(action.card)
+
+      pushStateDup[pushStatus] = pushStatusDup;
+
+      return pushStateDup;
 
     default:
       return state;
