@@ -13,9 +13,9 @@ class StatusColumn extends Component {
     const status = this.props.status
     const cards = this.props.state.cards[status];
 
-    let backgroundColor = '#C0BDB3';
+    let backgroundColor = 'rgba(178,175,164,0.85)';
     if (isActive) {
-      backgroundColor = '#84AA43';
+      backgroundColor = 'rgba(132,170,67,0.9)';
     }
 
     const style = {

@@ -30499,9 +30499,9 @@
 	      var status = this.props.status;
 	      var cards = this.props.state.cards[status];
 	
-	      var backgroundColor = '#C0BDB3';
+	      var backgroundColor = 'rgba(178,175,164,0.85)';
 	      if (isActive) {
-	        backgroundColor = '#84AA43';
+	        backgroundColor = 'rgba(132,170,67,0.9)';
 	      }
 	
 	      var style = {
