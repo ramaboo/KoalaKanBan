@@ -30,6 +30,29 @@
   color: #727272;
   border-radius: 5px;
   border-bottom: 1px solid #727272;
+  background-color: white;
+}
+
+/*.card:hover {
+  background-color: rgb(204,201,192);
+}*/
+
+.add-task {
+  height: 1.5rem;
+  width: 14rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  text-align: left;
+  line-height: 1.5rem;
+  color: #727272;
+  border-radius: 5px;
+  border-bottom: 1px solid #727272;
+  background-color: rgba(178,175,164,0.55);
+  cursor: pointer;
+}
+
+.add-task:hover {
+  background-color: rgb(204,201,192);
 }
 
 .heading {
@@ -109,4 +132,27 @@
   justify-content: space-around;
   align-items: center;
   margin-bottom: 1rem;
+}
+
+.adding-tasks {
+  height: 6rem;
+  width: 14rem;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+  color: #727272;
+  border-radius: 5px;
+  border-bottom: 1px solid #727272;
+  background-color: white;
+}
+.add-task-input {
+  width: 13.5rem;
+  height: 3.5rem;
+  background-color: white;
+  border: none;
+  font-size: 1rem;
+  color: #727272;
+}
+
+.add-task-input:focus {
+  outline: none;
 }
