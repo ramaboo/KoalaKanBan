@@ -164,11 +164,13 @@
 .add-button {
   height: 1.7rem;
   width: 3.5rem;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
   font-size: 1.1rem;
   border-radius: 5px;
   background-color: rgb(134,190,86);
   color: white;
+  border: none;
+  border-bottom: 1px solid #727272;
 }
 
 .add-button:focus {
@@ -182,6 +184,7 @@
   width: 1.7rem;
   background-color: white;
   font-size: 1.1rem;
+  font-weight: 700;
 }
 
 .x-button:focus {
