@@ -23159,7 +23159,7 @@
 	
 	    _this.customStyles = {
 	      overlay: {
-	        backgroundColor: 'rgba(21, 24, 23, 0.5)'
+	        backgroundColor: 'rgba(21, 24, 23, 0.65)'
 	      },
 	      content: {
 	        top: '50%',
@@ -23208,6 +23208,7 @@
 	        'div',
 	        null,
 	        _react2.default.createElement(_title2.default, null),
+	        _react2.default.createElement('div', { className: 'info-button', onClick: this.openModal }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'app' },
@@ -47816,7 +47817,6 @@
 	      //   textAlign: 'center',
 	      //   lineHeight: '5rem'
 	      // }
-	
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'heading' },
@@ -49862,11 +49862,15 @@
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'welcome-container' },
-	          _react2.default.createElement('div', { className: 'koala-pic' }),
 	          _react2.default.createElement(
 	            'div',
-	            { className: 'welcome-text' },
-	            'Koala Kanban is task management software for koalas. Tasks can be created, rearranged, and passed between progress states. It is built on React, Redux, and React-DnD. There is no backend at the moment, so don\'t expect any changes you make to persist between sessions.'
+	            { className: 'lite-bg' },
+	            _react2.default.createElement('div', { className: 'koala-pic' }),
+	            _react2.default.createElement(
+	              'div',
+	              { className: 'welcome-text' },
+	              'Koala Kanban is task management software for koalas. Tasks can be created, rearranged, and passed between progress states. It is built on React, Redux, and React-DnD. There is no backend at the moment, so don\'t expect any changes you make to persist between sessions. To view this message again, click the icon in the upper left corner of the page'
+	            )
 	          )
 	        ),
 	        _react2.default.createElement(

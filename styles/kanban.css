@@ -35,7 +35,7 @@
 .heading {
   font-size: 1.4rem;
   font-weight: 700;
-  color: #4C6E2A;
+  color: #727272;
   height: 3rem;
   padding: 0.5rem 1rem;
   margin-bottom: 1rem;
@@ -52,7 +52,7 @@
 
 .welcome-modal {
   background-color: rgba(76,134,57,1);
-  height: 23rem;
+  height: 25rem;
   width: 50rem;
   border-radius: 10px;
 }
@@ -64,7 +64,7 @@
 }
 
 .welcome-text {
-  color: rgb(240,239,192);
+  color: rgba(76,134,57,1);
   padding: 2rem;
   font-size: 1.4rem;
 }
@@ -90,4 +90,23 @@
 }
 .linked-link {
   content: url('../LinkedIn_logo.png');
+}
+
+.info-button {
+  content: url('../info-256.png');
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  cursor: pointer;
+}
+.info-button:hover {
+  content: url('../info-256_invert.png');
+}
+
+.lite-bg {
+  background-color: rgb(185,218,123);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 1rem;
 }

@@ -14,7 +14,6 @@ class Heading extends Component {
     //   textAlign: 'center',
     //   lineHeight: '5rem'
     // }
-
     return(
       <div className='heading'>
         {this.props.heading}

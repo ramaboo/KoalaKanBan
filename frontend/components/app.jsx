@@ -23,7 +23,7 @@ class App extends Component {
     super(props)
     this.customStyles = {
       overlay : {
-        backgroundColor : 'rgba(21, 24, 23, 0.5)'
+        backgroundColor : 'rgba(21, 24, 23, 0.65)'
       },
       content : {
         top                   : '50%',
@@ -65,6 +65,7 @@ class App extends Component {
     return(
       <div>
         <Title />
+        <div className='info-button' onClick={this.openModal}></div>
         <div className='app'>
           <StatusColumnContainer
             status="todo"
