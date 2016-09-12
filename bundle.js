@@ -23150,14 +23150,16 @@
 	    key: 'render',
 	    value: function render() {
 	      var style = {
-	        height: '100vh',
-	        display: 'flex',
-	        alignItems: 'flex-start'
+	        // height: '100vh',
+	        // display: 'flex',
+	        // alignItems: 'flex-start',
+	        // margin: '0, auto'
+	        //overflow: 'scroll'
 	      };
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { style: style },
+	        { className: 'app' },
 	        _react2.default.createElement(_status_column_container2.default, {
 	          status: 'todo',
 	          pushCard: this.props.pushCard,
@@ -30889,7 +30891,7 @@
 	      text: 'visit panda at the zoo'
 	    }, {
 	      id: 3,
-	      text: 'make drop-bear costume for halloween'
+	      text: 'make drop-bear costume'
 	    }, {
 	      id: 4,
 	      text: 'take a nap'
@@ -30898,7 +30900,7 @@
 	      text: 'take an even longer nap'
 	    }, {
 	      id: 6,
-	      text: 'read 101 ways to cook eucalyptus leaves'
+	      text: 'eat more trees'
 	    }, {
 	      id: 7,
 	      text: 'take up surfing'

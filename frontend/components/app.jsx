@@ -19,14 +19,15 @@ class App extends Component {
 
   render() {
     const style = {
-      height: '100vh',
-      display: 'flex',
-      alignItems: 'flex-start',
+      // height: '100vh',
+      // display: 'flex',
+      // alignItems: 'flex-start',
+      // margin: '0, auto'
       //overflow: 'scroll'
     }
 
     return(
-      <div style={style}>
+      <div className='app'>
         <StatusColumnContainer
           status="todo"
           pushCard={this.props.pushCard}

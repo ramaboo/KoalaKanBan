@@ -9,7 +9,7 @@ export const preloadedState = {
         text: 'visit panda at the zoo'
       }, {
         id: 3,
-        text: 'make drop-bear costume for halloween'
+        text: 'make drop-bear costume'
       }, {
         id: 4,
         text: 'take a nap'
@@ -18,7 +18,7 @@ export const preloadedState = {
         text: 'take an even longer nap'
       }, {
         id: 6,
-        text: 'read 101 ways to cook eucalyptus leaves'
+        text: 'eat more trees'
       }, {
         id: 7,
         text: 'take up surfing'
