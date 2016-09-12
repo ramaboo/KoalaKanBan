@@ -42,10 +42,52 @@
   text-align: center;
   line-height: 3rem;
   border-radius: 5px;
-  background-color: white;
+  background-color: rgba(178,175,164,0.55);
 }
 
 .title {
   content: url('../logo.png');
   margin: 0 auto;
+}
+
+.welcome-modal {
+  background-color: rgba(76,134,57,1);
+  height: 23rem;
+  width: 50rem;
+  border-radius: 10px;
+}
+
+.welcome-title {
+  color: rgb(240,239,192);
+  padding-top: 2rem;
+  padding-left: 2rem;
+}
+
+.welcome-text {
+  color: rgb(240,239,192);
+  padding: 2rem;
+  font-size: 1.4rem;
+}
+
+.welcome-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.koala-pic {
+  padding-left: 2rem;
+  content: url('../koalacartoon.png');
+}
+
+.links {
+  float: right;
+  padding-right: 2rem;
+}
+
+.git-link {
+  content: url('../GitHub-Mark-32px.png');
+  margin-right: 2rem;
+}
+.linked-link {
+  content: url('../LinkedIn_logo.png');
 }
