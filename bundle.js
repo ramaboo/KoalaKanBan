@@ -30670,6 +30670,8 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactDndHtml5Backend = __webpack_require__(308);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30688,6 +30690,17 @@
 	  }
 	
 	  _createClass(Card, [{
+	    key: 'componentDidMount',
+	    value: function componentDidMount() {
+	      var _this2 = this;
+	
+	      var img = new Image();
+	      img.src = 'koalacartoon.png';
+	      img.onload = function () {
+	        return _this2.props.connectDragPreview(img);
+	      };
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	      var _props = this.props;
