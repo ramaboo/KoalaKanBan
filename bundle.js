@@ -23112,6 +23112,10 @@
 	
 	var _card_actions = __webpack_require__(342);
 	
+	var _title = __webpack_require__(350);
+	
+	var _title2 = _interopRequireDefault(_title);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -23159,27 +23163,32 @@
 	
 	      return _react2.default.createElement(
 	        'div',
-	        { className: 'app' },
-	        _react2.default.createElement(_status_column_container2.default, {
-	          status: 'todo',
-	          pushCard: this.props.pushCard,
-	          removeCard: this.props.removeCard,
-	          heading: 'To Do' }),
-	        _react2.default.createElement(_status_column_container2.default, {
-	          status: 'inProgress',
-	          pushCard: this.props.pushCard,
-	          removeCard: this.props.removeCard,
-	          heading: 'In Progress' }),
-	        _react2.default.createElement(_status_column_container2.default, {
-	          status: 'review',
-	          pushCard: this.props.pushCard,
-	          removeCard: this.props.removeCard,
-	          heading: 'Review' }),
-	        _react2.default.createElement(_status_column_container2.default, {
-	          status: 'complete',
-	          pushCard: this.props.pushCard,
-	          removeCard: this.props.removeCard,
-	          heading: 'Complete' })
+	        null,
+	        _react2.default.createElement(_title2.default, null),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'app' },
+	          _react2.default.createElement(_status_column_container2.default, {
+	            status: 'todo',
+	            pushCard: this.props.pushCard,
+	            removeCard: this.props.removeCard,
+	            heading: 'To Do' }),
+	          _react2.default.createElement(_status_column_container2.default, {
+	            status: 'inProgress',
+	            pushCard: this.props.pushCard,
+	            removeCard: this.props.removeCard,
+	            heading: 'In Progress' }),
+	          _react2.default.createElement(_status_column_container2.default, {
+	            status: 'review',
+	            pushCard: this.props.pushCard,
+	            removeCard: this.props.removeCard,
+	            heading: 'Review' }),
+	          _react2.default.createElement(_status_column_container2.default, {
+	            status: 'complete',
+	            pushCard: this.props.pushCard,
+	            removeCard: this.props.removeCard,
+	            heading: 'Complete' })
+	        )
 	      );
 	    }
 	  }]);
@@ -47754,6 +47763,51 @@
 	}(_react.Component);
 	
 	exports.default = Heading;
+
+/***/ },
+/* 350 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+	
+	var _react = __webpack_require__(1);
+	
+	var _react2 = _interopRequireDefault(_react);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+	
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+	
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+	
+	var Title = function (_Component) {
+	  _inherits(Title, _Component);
+	
+	  function Title() {
+	    _classCallCheck(this, Title);
+	
+	    return _possibleConstructorReturn(this, (Title.__proto__ || Object.getPrototypeOf(Title)).apply(this, arguments));
+	  }
+	
+	  _createClass(Title, [{
+	    key: 'render',
+	    value: function render() {
+	      return _react2.default.createElement('div', { className: 'title' });
+	    }
+	  }]);
+	
+	  return Title;
+	}(_react.Component);
+	
+	exports.default = Title;
 
 /***/ }
 /******/ ]);

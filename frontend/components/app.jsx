@@ -5,6 +5,7 @@ import  { compose } from 'redux';
 import { connect } from 'react-redux';
 import StatusColumnContainer from './status_column_container';
 import { pushCard, removeCard } from '../actions/card_actions';
+import Title from './title';
 
 const mapStateToProps = (state) => ({
   state
@@ -27,27 +28,30 @@ class App extends Component {
     }
 
     return(
-      <div className='app'>
-        <StatusColumnContainer
-          status="todo"
-          pushCard={this.props.pushCard}
-          removeCard={this.props.removeCard}
-          heading='To Do' />
-        <StatusColumnContainer
-          status="inProgress"
-          pushCard={this.props.pushCard}
-          removeCard={this.props.removeCard}
-          heading='In Progress' />
-        <StatusColumnContainer
-          status="review"
-          pushCard={this.props.pushCard}
-          removeCard={this.props.removeCard}
-          heading='Review' />
-        <StatusColumnContainer
-          status="complete"
-          pushCard={this.props.pushCard}
-          removeCard={this.props.removeCard}
-          heading='Complete' />
+      <div>
+        <Title />
+        <div className='app'>
+          <StatusColumnContainer
+            status="todo"
+            pushCard={this.props.pushCard}
+            removeCard={this.props.removeCard}
+            heading='To Do' />
+          <StatusColumnContainer
+            status="inProgress"
+            pushCard={this.props.pushCard}
+            removeCard={this.props.removeCard}
+            heading='In Progress' />
+          <StatusColumnContainer
+            status="review"
+            pushCard={this.props.pushCard}
+            removeCard={this.props.removeCard}
+            heading='Review' />
+          <StatusColumnContainer
+            status="complete"
+            pushCard={this.props.pushCard}
+            removeCard={this.props.removeCard}
+            heading='Complete' />
+      </div>
     </div>
     );
   }
