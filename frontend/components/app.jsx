@@ -54,13 +54,6 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      // height: '100vh',
-      // display: 'flex',
-      // alignItems: 'flex-start',
-      // margin: '0, auto'
-      //overflow: 'scroll'
-    }
 
     return(
       <div>

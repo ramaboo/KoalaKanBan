@@ -20,18 +20,6 @@ class StatusColumn extends Component {
     }
 
     const style = {
-      //height: '100%',
-      //minHeight: '15rem',
-      //width: '14rem',
-      // marginRight: '1.5rem',
-      // marginBorrom: '1.5rem',
-      // padding: '1rem',
-      // textAlign: 'center',
-      // fontSize: '1rem',
-      // lineHeight: 'normal',
-      //float: 'left',
-      // border: 'dashed thin gray',
-      // opacity: 0.5,
       backgroundColor: backgroundColor,
     };
 

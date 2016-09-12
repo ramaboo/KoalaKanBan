@@ -32,6 +32,9 @@ class AddTask extends Component {
 
   addTask(e) {
     e.preventDefault();
+
+    if (this.state.text === '') { return };
+
     const newCard = {
       id: this.findId(),
       text: this.state.text

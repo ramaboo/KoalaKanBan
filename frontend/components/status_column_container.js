@@ -10,7 +10,6 @@ const cardTarget = {
   },
 
   drop(props, monitor, component) {
-    //return { status: props.status };
     const sourceObj = monitor.getItem();
     const status = props.status;
     const index = sourceObj.index;

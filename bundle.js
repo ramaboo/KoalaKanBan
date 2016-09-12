@@ -23196,13 +23196,6 @@
 	  }, {
 	    key: 'render',
 	    value: function render() {
-	      var style = {
-	        // height: '100vh',
-	        // display: 'flex',
-	        // alignItems: 'flex-start',
-	        // margin: '0, auto'
-	        //overflow: 'scroll'
-	      };
 	
 	      return _react2.default.createElement(
 	        'div',
@@ -30462,7 +30455,6 @@
 	    return true;
 	  },
 	  drop: function drop(props, monitor, component) {
-	    //return { status: props.status };
 	    var sourceObj = monitor.getItem();
 	    var status = props.status;
 	    var index = sourceObj.index;
@@ -30563,18 +30555,6 @@
 	      }
 	
 	      var style = {
-	        //height: '100%',
-	        //minHeight: '15rem',
-	        //width: '14rem',
-	        // marginRight: '1.5rem',
-	        // marginBorrom: '1.5rem',
-	        // padding: '1rem',
-	        // textAlign: 'center',
-	        // fontSize: '1rem',
-	        // lineHeight: 'normal',
-	        //float: 'left',
-	        // border: 'dashed thin gray',
-	        // opacity: 0.5,
 	        backgroundColor: backgroundColor
 	      };
 	
@@ -30646,42 +30626,29 @@
 	    var hoverIndex = props.index;
 	    var status = props.status;
 	
-	    //console.log(sourceObj.status, status);
 	    if (sourceObj.status !== status) {
 	      return;
 	    }
 	
-	    //prevent card replacing itself
 	    if (dragIndex === hoverIndex) {
 	      return;
 	    }
 	
-	    //find bounding rect in window
 	    var hoverBoundingRect = (0, _reactDom.findDOMNode)(component).getBoundingClientRect();
 	
-	    //get vertical middle
 	    var hoverMiddleY = (hoverBoundingRect.bottom - hoverBoundingRect.top) / 2;
 	
-	    //determine mouse pos
 	    var clientOffset = monitor.getClientOffset();
 	
-	    // get pixels to the top
 	    var hoverClientY = clientOffset.y - hoverBoundingRect.top;
 	
-	    // Only perform the move when the mouse has crossed half of the items height
-	    // When dragging downwards, only move when the cursor is below 50%
-	    // When dragging upwards, only move when the cursor is above 50%
-	
-	    //dragging downwards
 	    if (dragIndex < hoverIndex && hoverClientY < hoverMiddleY) {
 	      return;
 	    }
 	
-	    //dragging upwards
 	    if (dragIndex > hoverIndex && hoverClientY > hoverMiddleY) {
 	      return;
 	    }
-	    //here we do the move
 	    props.moveCard(dragIndex, hoverIndex, status);
 	
 	    monitor.getItem().index = hoverIndex;
@@ -30769,19 +30736,8 @@
 	      var connectDropTarget = _props.connectDropTarget;
 	
 	      var opacity = isDragging ? 0.1 : 1;
-	      //const backgroundColor = isDragging ? '#B6CC68' : 'white';
 	
 	      var style = {
-	        // minHeight: '2rem',
-	        // width: '12rem',
-	        // padding: '0.5rem 1rem',
-	        // marginBottom: '0.5rem',
-	        // backgroundColor: 'white',
-	        // cursor: 'move',
-	        // border: '1px dashed gray',
-	        // textAlign: 'center',
-	        // lineHeight: '2rem',
-	        // color: 'black',
 	        opacity: opacity
 	      };
 	
@@ -30834,14 +30790,6 @@
 	  _createClass(Heading, [{
 	    key: 'render',
 	    value: function render() {
-	      // const style = {
-	      //   height: '5rem',
-	      //   border: 'solid thin black',
-	      //   padding: '0.5rem 1rem',
-	      //   marginBottom: '1rem',
-	      //   textAlign: 'center',
-	      //   lineHeight: '5rem'
-	      // }
 	      return _react2.default.createElement(
 	        'div',
 	        { className: 'heading' },
@@ -30921,6 +30869,11 @@
 	    key: 'addTask',
 	    value: function addTask(e) {
 	      e.preventDefault();
+	
+	      if (this.state.text === '') {
+	        return;
+	      };
+	
 	      var newCard = {
 	        id: this.findId(),
 	        text: this.state.text
@@ -31064,7 +31017,11 @@
 	  _createClass(Title, [{
 	    key: 'render',
 	    value: function render() {
-	      return _react2.default.createElement('div', { className: 'title' });
+	      return _react2.default.createElement(
+	        'div',
+	        { className: 'title' },
+	        ' '
+	      );
 	    }
 	  }]);
 	
@@ -33195,20 +33152,6 @@
 	};
 	
 	exports.default = CardsReducer;
-	
-	// moveCard(dragIndex, hoverIndex) {
-	//   const { cards } = this.state;
-	//   const dragCard = cards[dragIndex];
-	//
-	//   this.setState(update(this.state, {
-	//     cards: {
-	//       $splice: [
-	//         [dragIndex, 1],
-	//         [hoverIndex, 0, dragCard]
-	//       ]
-	//     }
-	//   }));
-	// }
 
 /***/ },
 /* 370 */

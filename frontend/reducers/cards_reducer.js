@@ -43,17 +43,3 @@ const CardsReducer = (state = {}, action) => {
 };
 
 export default CardsReducer;
-
-// moveCard(dragIndex, hoverIndex) {
-//   const { cards } = this.state;
-//   const dragCard = cards[dragIndex];
-//
-//   this.setState(update(this.state, {
-//     cards: {
-//       $splice: [
-//         [dragIndex, 1],
-//         [hoverIndex, 0, dragCard]
-//       ]
-//     }
-//   }));
-// }

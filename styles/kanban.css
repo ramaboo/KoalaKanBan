@@ -158,23 +158,28 @@
 }
 
 .add-task-buttons {
-  float: left;
+  display : flex;
+  justify-content: space-between;
 }
 
 .add-button {
   height: 1.7rem;
   width: 3.5rem;
-  margin-right: 0.5rem;
   font-size: 1.1rem;
   border-radius: 5px;
   background-color: rgb(134,190,86);
   color: white;
   border: none;
   border-bottom: 1px solid #727272;
+  cursor: pointer;
 }
 
 .add-button:focus {
   outline: none;
+}
+
+.add-button:hover {
+  background-color: rgb(76,134,57);
 }
 
 .x-button {
@@ -185,8 +190,13 @@
   background-color: white;
   font-size: 1.1rem;
   font-weight: 700;
+  cursor: pointer;
 }
 
 .x-button:focus {
   outline: none;
+}
+
+.x-button:hover {
+  color: rgb(204,201,192);
 }
