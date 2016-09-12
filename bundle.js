@@ -30913,7 +30913,21 @@
 	      var content = this.state.addToggle === 'adding' ? _react2.default.createElement(
 	        'div',
 	        { className: 'adding-tasks' },
-	        _react2.default.createElement('textarea', { className: 'add-task-input' })
+	        _react2.default.createElement('textarea', { className: 'add-task-input' }),
+	        _react2.default.createElement(
+	          'div',
+	          { className: 'add-task-buttons' },
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'add-button' },
+	            'Add'
+	          ),
+	          _react2.default.createElement(
+	            'button',
+	            { className: 'x-button', onClick: this.toggleAdd.bind(this) },
+	            ' X '
+	          )
+	        )
 	      ) : _react2.default.createElement(
 	        'div',
 	        { className: 'add-task', onClick: this.toggleAdd.bind(this) },

@@ -25,6 +25,10 @@ class AddTask extends Component {
     let content = this.state.addToggle === 'adding' ?
       <div className='adding-tasks'>
         <textarea className='add-task-input' />
+        <div className='add-task-buttons'>
+          <button className='add-button'>Add</button>
+          <button className='x-button' onClick={this.toggleAdd.bind(this)}> X </button>
+        </div>
       </div> :
 
       <div className='add-task' onClick={this.toggleAdd.bind(this)}>

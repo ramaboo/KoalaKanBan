@@ -156,3 +156,34 @@
 .add-task-input:focus {
   outline: none;
 }
+
+.add-task-buttons {
+  float: left;
+}
+
+.add-button {
+  height: 1.7rem;
+  width: 3.5rem;
+  margin-right: 1rem;
+  font-size: 1.1rem;
+  border-radius: 5px;
+  background-color: rgb(134,190,86);
+  color: white;
+}
+
+.add-button:focus {
+  outline: none;
+}
+
+.x-button {
+  color: red;
+  border: none;
+  height: 1.7rem;
+  width: 1.7rem;
+  background-color: white;
+  font-size: 1.1rem;
+}
+
+.x-button:focus {
+  outline: none;
+}
