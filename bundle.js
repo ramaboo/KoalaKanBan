@@ -30499,7 +30499,7 @@
 	      var status = this.props.status;
 	      var cards = this.props.state.cards[status];
 	
-	      var backgroundColor = 'rgba(178,175,164,0.85)';
+	      var backgroundColor = 'rgba(178,175,164,0.75)';
 	      if (isActive) {
 	        backgroundColor = 'rgba(132,170,67,0.9)';
 	      }
