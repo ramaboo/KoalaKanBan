@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import CardContainer from './card_container';
 import Heading from './heading';
-import AddTask from './add_task';
+import AddTaskContainer from './add_task_container';
 
 class StatusColumn extends Component {
   constructor(props) {
@@ -48,7 +48,7 @@ class StatusColumn extends Component {
                   status={status} />
           );
         })}
-        <AddTask />
+        <AddTaskContainer status={status} />
       </div>
     );
   }

@@ -30522,9 +30522,9 @@
 	
 	var _heading2 = _interopRequireDefault(_heading);
 	
-	var _add_task = __webpack_require__(343);
+	var _add_task_container = __webpack_require__(374);
 	
-	var _add_task2 = _interopRequireDefault(_add_task);
+	var _add_task_container2 = _interopRequireDefault(_add_task_container);
 	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
@@ -30590,7 +30590,7 @@
 	            moveCard: _this2.props.moveCard,
 	            status: status });
 	        }),
-	        _react2.default.createElement(_add_task2.default, null)
+	        _react2.default.createElement(_add_task_container2.default, { status: status })
 	      ));
 	    }
 	  }]);
@@ -30888,14 +30888,18 @@
 	    var _this = _possibleConstructorReturn(this, (AddTask.__proto__ || Object.getPrototypeOf(AddTask)).call(this, props));
 	
 	    _this.state = {
-	      addToggle: 'toAdd'
+	      addToggle: 'toAdd',
+	      text: ''
 	    };
+	    _this.findId = _this.findId.bind(_this);
 	    return _this;
 	  }
 	
 	  _createClass(AddTask, [{
 	    key: 'toggleAdd',
-	    value: function toggleAdd() {
+	    value: function toggleAdd(e) {
+	      e.preventDefault();
+	
 	      if (this.state.addToggle === 'toAdd') {
 	        this.setState({
 	          addToggle: 'adding'
@@ -30907,25 +30911,70 @@
 	      }
 	    }
 	  }, {
+	    key: 'updateText',
+	    value: function updateText(e) {
+	      this.setState({
+	        text: e.currentTarget.value
+	      });
+	    }
+	  }, {
+	    key: 'addTask',
+	    value: function addTask(e) {
+	      e.preventDefault();
+	      var newCard = {
+	        id: this.findId(),
+	        text: this.state.text
+	      };
+	      var status = this.props.status;
+	      this.setState({ text: '', addToggle: 'toAdd' });
+	      this.props.pushCard(newCard, status);
+	    }
+	  }, {
+	    key: 'findId',
+	    value: function findId() {
+	      var _this2 = this;
+	
+	      // i know this is inefficeint. In a real app, Id would be taken care of by the DB
+	      var mapped = Object.keys(this.props.state.cards).map(function (key) {
+	        return _this2.props.state.cards[key];
+	      });
+	      var flattened = mapped.reduce(function (a, b) {
+	        return a.concat(b);
+	      });
+	      var sorted = flattened.sort(function (a, b) {
+	        if (a.id < b.id) {
+	          return -1;
+	        }
+	        if (a.id > b.id) {
+	          return 1;
+	        }
+	      });
+	      return sorted[sorted.length - 1].id + 1;
+	    }
+	  }, {
 	    key: 'render',
 	    value: function render() {
 	
 	      var content = this.state.addToggle === 'adding' ? _react2.default.createElement(
 	        'div',
 	        { className: 'adding-tasks' },
-	        _react2.default.createElement('textarea', { className: 'add-task-input' }),
+	        _react2.default.createElement('textarea', { className: 'add-task-input',
+	          value: this.state.text,
+	          onChange: this.updateText.bind(this) }),
 	        _react2.default.createElement(
 	          'div',
 	          { className: 'add-task-buttons' },
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'add-button' },
+	            { className: 'add-button',
+	              onClick: this.addTask.bind(this) },
 	            'Add'
 	          ),
 	          _react2.default.createElement(
 	            'button',
-	            { className: 'x-button', onClick: this.toggleAdd.bind(this) },
-	            ' X '
+	            { className: 'x-button',
+	              onClick: this.toggleAdd.bind(this) },
+	            'X'
 	          )
 	        )
 	      ) : _react2.default.createElement(
@@ -30933,6 +30982,7 @@
 	        { className: 'add-task', onClick: this.toggleAdd.bind(this) },
 	        'Create New Task...'
 	      );
+	
 	      return _react2.default.createElement(
 	        'div',
 	        null,
@@ -49984,6 +50034,43 @@
 	    }]
 	  }
 	};
+
+/***/ },
+/* 373 */,
+/* 374 */
+/***/ function(module, exports, __webpack_require__) {
+
+	'use strict';
+	
+	Object.defineProperty(exports, "__esModule", {
+	  value: true
+	});
+	
+	var _reactRedux = __webpack_require__(173);
+	
+	var _card_actions = __webpack_require__(344);
+	
+	var _add_task = __webpack_require__(343);
+	
+	var _add_task2 = _interopRequireDefault(_add_task);
+	
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+	
+	var mapStateToProps = function mapStateToProps(state) {
+	  return {
+	    state: state
+	  };
+	};
+	
+	var mapDispatchToProps = function mapDispatchToProps(dispatch) {
+	  return {
+	    pushCard: function pushCard(card, targetStatus) {
+	      return dispatch((0, _card_actions.pushCard)(card, targetStatus));
+	    }
+	  };
+	};
+	
+	exports.default = (0, _reactRedux.connect)(mapStateToProps, mapDispatchToProps)(_add_task2.default);
 
 /***/ }
 /******/ ]);
