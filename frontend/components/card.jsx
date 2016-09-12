@@ -6,6 +6,7 @@ class Card extends Component {
   render() {
     const { text, isDragging, connectDragSource, connectDropTarget } = this.props;
     const opacity = isDragging ? 0.1 : 1;
+    const backgroundColor = isDragging ? '#B6CC68' : 'white';
 
     const style = {
       // minHeight: '2rem',
@@ -18,7 +19,8 @@ class Card extends Component {
       // textAlign: 'center',
       // lineHeight: '2rem',
       // color: 'black',
-      opacity: opacity
+      opacity: opacity,
+      backgroundColor: backgroundColor
     }
 
     return (

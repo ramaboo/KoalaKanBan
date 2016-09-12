@@ -30620,6 +30620,7 @@
 	
 	function collectDrag(connect, monitor) {
 	  return {
+	    connectDragPreview: connect.dragPreview(),
 	    connectDragSource: connect.dragSource(),
 	    isDragging: monitor.isDragging()
 	  };
@@ -30685,6 +30686,7 @@
 	      var connectDropTarget = _props.connectDropTarget;
 	
 	      var opacity = isDragging ? 0.1 : 1;
+	      var backgroundColor = isDragging ? '#B6CC68' : 'white';
 	
 	      var style = {
 	        // minHeight: '2rem',
@@ -30697,7 +30699,8 @@
 	        // textAlign: 'center',
 	        // lineHeight: '2rem',
 	        // color: 'black',
-	        opacity: opacity
+	        opacity: opacity,
+	        backgroundColor: backgroundColor
 	      };
 	
 	      return connectDragSource(connectDropTarget(_react2.default.createElement(

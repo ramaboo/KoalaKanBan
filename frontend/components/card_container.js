@@ -72,6 +72,7 @@ const cardTarget = {
 
 function collectDrag(connect, monitor) {
   return {
+    connectDragPreview: connect.dragPreview(),
     connectDragSource: connect.dragSource(),
     isDragging: monitor.isDragging()
   };
