@@ -30819,6 +30819,10 @@
 	
 	var _react2 = _interopRequireDefault(_react);
 	
+	var _reactDom = __webpack_require__(34);
+	
+	var _reactDom2 = _interopRequireDefault(_reactDom);
+	
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 	
 	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -30844,6 +30848,13 @@
 	  }
 	
 	  _createClass(AddTask, [{
+	    key: 'componentDidUpdate',
+	    value: function componentDidUpdate() {
+	      if (this.state.addToggle === 'adding') {
+	        _reactDom2.default.findDOMNode(this.refs.addField).focus();
+	      }
+	    }
+	  }, {
 	    key: 'toggleAdd',
 	    value: function toggleAdd(e) {
 	      e.preventDefault();
@@ -30911,7 +30922,7 @@
 	      var content = this.state.addToggle === 'adding' ? _react2.default.createElement(
 	        'div',
 	        { className: 'adding-tasks' },
-	        _react2.default.createElement('textarea', { className: 'add-task-input',
+	        _react2.default.createElement('textarea', { ref: 'addField', className: 'add-task-input',
 	          value: this.state.text,
 	          onChange: this.updateText.bind(this) }),
 	        _react2.default.createElement(

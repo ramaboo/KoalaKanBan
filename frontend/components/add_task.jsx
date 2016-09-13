@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import ReactDOM from 'react-dom';
 
 class AddTask extends Component {
   constructor(props){
@@ -8,6 +9,12 @@ class AddTask extends Component {
       text: ''
     }
     this.findId = this.findId.bind(this);
+  }
+
+  componentDidUpdate() {
+    if (this.state.addToggle === 'adding') {
+      ReactDOM.findDOMNode(this.refs.addField).focus();
+    }
   }
 
   toggleAdd(e) {
@@ -59,7 +66,7 @@ class AddTask extends Component {
 
     let content = this.state.addToggle === 'adding' ?
       <div className='adding-tasks'>
-        <textarea className='add-task-input'
+        <textarea ref='addField' className='add-task-input'
           value={this.state.text}
           onChange={this.updateText.bind(this)} />
         <div className='add-task-buttons'>
