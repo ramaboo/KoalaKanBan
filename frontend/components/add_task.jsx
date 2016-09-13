@@ -75,7 +75,7 @@ class AddTask extends Component {
       </div> :
 
       <div className='add-task' onClick={this.toggleAdd.bind(this)}>
-        Create New Task...
+        Create new task...
       </div>
 
     return(

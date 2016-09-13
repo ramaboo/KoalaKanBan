@@ -30933,7 +30933,7 @@
 	      ) : _react2.default.createElement(
 	        'div',
 	        { className: 'add-task', onClick: this.toggleAdd.bind(this) },
-	        'Create New Task...'
+	        'Create new task...'
 	      );
 	
 	      return _react2.default.createElement(
